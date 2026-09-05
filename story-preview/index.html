@@ -3,50 +3,72 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ОКСИЯ — обложка истории «Подготовка к школе»</title>
+<title>ОКСИЯ — история «Подготовка к школе», новый вид</title>
 <style>
   :root{ --cream:#FBF5E9; --ink:#3A3226; --bronze:#8E6322; --blue:#3B5A75; --border:#E3D8BF; }
   *{box-sizing:border-box; margin:0; padding:0;}
-  body{ background:#F3EDDF; color:var(--ink); font:16px/1.6 "PT Sans","Segoe UI",Arial,sans-serif; padding:28px 18px 60px; }
-  .wrap{ max-width:1040px; margin:0 auto; }
+  body{ background:#F3EDDF; color:var(--ink); font:16px/1.6 "PT Sans","Segoe UI",Arial,sans-serif; padding:28px 18px 70px; }
+  .wrap{ max-width:1180px; margin:0 auto; }
   h1{ font-size:22px; color:var(--bronze); margin-bottom:6px; }
-  p.lead{ color:#6B6353; margin-bottom:26px; }
-  .grid{ display:flex; gap:26px; flex-wrap:wrap; align-items:flex-start; }
-  .col{ flex:1 1 300px; }
-  .tag{ font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; margin-bottom:10px; }
-  .tag.old{ color:#9A8B6B; }
-  .tag.new{ color:var(--bronze); }
-  .card{ border:1px solid var(--border); border-radius:12px; overflow:hidden; background:var(--cream); box-shadow:0 8px 30px rgba(90,70,30,.10); }
+  h2{ font-size:16px; color:#6B6353; margin:30px 0 14px; text-transform:uppercase; letter-spacing:.06em; }
+  p.lead{ color:#6B6353; margin-bottom:8px; }
+  .grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:14px; }
+  .grid.old{ grid-template-columns:repeat(5,1fr); opacity:.9; }
+  .card{ border:1px solid var(--border); border-radius:10px; overflow:hidden; background:var(--cream); box-shadow:0 6px 20px rgba(90,70,30,.10); }
   .card img{ display:block; width:100%; height:auto; }
-  ul{ margin:22px 0 0 20px; color:#514A3B; }
-  ul li{ margin:4px 0; }
+  .cap{ font-size:12px; color:#8A7C5E; padding:6px 8px; }
+  ul{ margin:16px 0 0 20px; color:#514A3B; }
+  ul li{ margin:5px 0; }
+  .q{ background:#FFF; border:1px solid var(--border); border-radius:10px; padding:16px 18px; margin-top:20px; }
+  .q b{ color:var(--bronze); }
   .back{ display:inline-block; margin-top:26px; color:var(--blue); font-weight:700; text-decoration:none; }
-  @media(max-width:720px){ .grid{ gap:18px; } }
+  @media(max-width:900px){ .grid{ grid-template-columns:repeat(3,1fr); } }
+  @media(max-width:560px){ .grid{ grid-template-columns:repeat(2,1fr); } }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>Обложка истории «Подготовка к школе» — новый вариант</h1>
-  <p class="lead">Тот же стиль (голубые волны, кремовый фон, бронзовый шрифт). Правки: заголовок крупнее ~вдвое, чистый бронзовый цвет, без длинных тире и висячих строк, без счётчика слайдов, разбивка по смыслу, акцент на тексте в голубой плашке. Размер сторис 1280×1920, отрисовано вёрсткой.</p>
+  <h1>История «Подготовка к школе» — новый вид, все 10 слайдов</h1>
+  <p class="lead">Тот же стиль, что на утверждённой обложке: голубые волны, кремовый фон, бронзовый шрифт. Крупный текст, чистый цвет, без длинных тире и висячих строк, без счётчика слайдов. Цены — тремя строками: возраст / сумма / что внутри. Размер 1280×1920, отрисовано вёрсткой.</p>
 
+  <h2>Стало</h2>
   <div class="grid">
-    <div class="col">
-      <div class="tag old">Было</div>
-      <div class="card"><img src="cover-old.jpg" alt="Старая обложка"></div>
-    </div>
-    <div class="col">
-      <div class="tag new">Стало</div>
-      <div class="card"><img src="cover-new.png" alt="Новая обложка"></div>
-    </div>
+    <div class="card"><img src="new/01.png" alt="1"><div class="cap">1. Обложка</div></div>
+    <div class="card"><img src="new/02.png" alt="2"><div class="cap">2. Три группы</div></div>
+    <div class="card"><img src="new/03.png" alt="3"><div class="cap">3. 4 года — 6 000 ₽</div></div>
+    <div class="card"><img src="new/04.png" alt="4"><div class="cap">4. 5 лет — 8 800 ₽</div></div>
+    <div class="card"><img src="new/05.png" alt="5"><div class="cap">5. 6-7 лет — 8 800 ₽</div></div>
+    <div class="card"><img src="new/06.png" alt="6"><div class="cap">6. Методика РКШ</div></div>
+    <div class="card"><img src="new/07.png" alt="7"><div class="cap">7. Небольшая группа</div></div>
+    <div class="card"><img src="new/08.png" alt="8"><div class="cap">8. Готов к школе</div></div>
+    <div class="card"><img src="new/09.png" alt="9"><div class="cap">9. Старт с 4 лет</div></div>
+    <div class="card"><img src="new/10.png" alt="10"><div class="cap">10. Запись на пробное</div></div>
+  </div>
+
+  <h2>Было</h2>
+  <div class="grid old">
+    <div class="card"><img src="../images/img002.jpg" alt="старый 1"><div class="cap">1</div></div>
+    <div class="card"><img src="../images/img017.jpg" alt="старый 2"><div class="cap">2</div></div>
+    <div class="card"><img src="../images/img018.jpg" alt="старый 3"><div class="cap">3</div></div>
+    <div class="card"><img src="../images/img019.jpg" alt="старый 4"><div class="cap">4</div></div>
+    <div class="card"><img src="../images/img020.jpg" alt="старый 5"><div class="cap">5</div></div>
+    <div class="card"><img src="../images/img021.jpg" alt="старый 6"><div class="cap">6</div></div>
+    <div class="card"><img src="../images/img022.jpg" alt="старый 7"><div class="cap">7</div></div>
+    <div class="card"><img src="../images/img023.jpg" alt="старый 8"><div class="cap">8</div></div>
+    <div class="card"><img src="../images/img024.jpg" alt="старый 9"><div class="cap">9</div></div>
+    <div class="card"><img src="../images/img025.jpg" alt="старый 10"><div class="cap">10</div></div>
+  </div>
+
+  <div class="q">
+    <p><b>Нужно решение по датам (слайд 10).</b> В сценарии были 3, 8 и 10 сентября. 3-е уже прошло, поставил «8 и 10 сентября». Скажи актуальные даты пробных — поправлю.</p>
   </div>
 
   <ul>
-    <li>Если направление подходит — соберу в этом виде все 10 слайдов «Подготовки к школе».</li>
-    <li>Слайды с ценами (4 года, 5 лет, 6-7 лет) — тремя строками: возраст / цена / описание.</li>
-    <li>Дальше — остальные 5 историй в едином стиле.</li>
+    <li>Немного дописал подписи под смысл: «три возрастные группы», «как учим», «спокойный старт в первом классе». Если что-то не так — скажи, поменяю.</li>
+    <li>После правок — заменю эти картинки в панели и соберу остальные 5 историй в этом же стиле.</li>
   </ul>
 
-  <a class="back" href="../">← вернуться к панели ОКСИЯ</a>
+  <a class="back" href="../">← к панели ОКСИЯ</a>
 </div>
 </body>
 </html>

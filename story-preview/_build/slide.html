@@ -74,8 +74,8 @@
   }
   .num{
     font-family:"Playfair Display",serif; font-weight:800;
-    font-size:270px; line-height:1; letter-spacing:-.015em; color:var(--fg-disp);
-    margin-top:46px;
+    font-size:var(--ns,270px); line-height:1; letter-spacing:-.015em; color:var(--fg-disp);
+    margin-top:46px; white-space:nowrap;
   }
   .permo{ margin-top:20px; font-size:48px; color:var(--bronze-soft); font-style:italic; font-family:"Playfair Display",serif; }
 
@@ -88,7 +88,8 @@
     font-family:"Playfair Display",serif; font-style:italic; font-weight:500;
   }
   .sub{ margin-top:44px; font-size:53px; font-weight:700; color:var(--fg-body); }
-  .cap{ margin-top:22px; font-size:35px; color:var(--bronze-soft); font-style:italic; }
+  .cap{ margin-top:36px; font-size:35px; color:var(--bronze-soft); font-style:italic; }
+  .disp + .cap{ margin-top:48px; }
 
   .list{ margin-top:54px; display:flex; flex-direction:column; gap:30px; }
   .list .li{ font-size:52px; color:var(--fg-body); display:flex; align-items:baseline; gap:28px; }
@@ -236,6 +237,7 @@ const S = {
   <div class="phone">+7 (921) 556-07-24</div>
   <div class="btn">Записаться</div>` },
 
+/* ═══ История 1 · Семейные классы (11 = обложка) ═══ */
 11:{ bg:'tb', icon:I.house, isize:'160px', ds:'120px', html:`
   <div class="kick">ОКСИЯ · Васильевский остров</div>
   <h1 class="disp">Семейные классы</h1>
@@ -243,7 +245,61 @@ const S = {
   <div class="chip">Маленький класс, где педагог<br>видит каждого ребёнка</div>
   <div class="facts">методика РКШ · 4-7 детей в классе</div>` },
 
-12:{ bg:'bottom', align:'left', icon:I.palette, isize:'150px', ds:'118px', html:`
+12:{ bg:'top', icon:I.book, isize:'150px', ds:'108px', html:`
+  <div class="kick">Что это</div>
+  <h1 class="disp">Начальная школа<br>полного дня</h1>
+  <div class="sub">семейные классы, методика РКШ</div>
+  <div class="cap">основная программа школы</div>` },
+
+13:{ bg:'bottom', align:'left', icon:I.bookcheck, isize:'150px', ds:'110px', html:`
+  <div class="kick">Чему учат</div>
+  <h1 class="disp">Чтение, письмо,<br>арифметика</h1>
+  <div class="hair"></div>
+  <div class="lead">Всё остальное строится<br>на этой основе</div>` },
+
+14:{ bg:'top', icon:I.people, isize:'182px', ds:'150px', html:`
+  <div class="kick">Маленький класс</div>
+  <h1 class="disp">У класса<br>свой темп</h1>
+  <div class="chip">Педагог ведёт занятие так,<br>как дети усваивают, без гонки</div>` },
+
+15:{ bg:'bottom', align:'left', icon:I.people, isize:'188px', ds:'124px', html:`
+  <div class="kick">Внимание к каждому</div>
+  <h1 class="disp">Педагог знает<br>каждого</h1>
+  <div class="lead">Если что-то не понял,<br>разбирают сразу же</div>` },
+
+16:{ bg:'blue', inv:true, icon:I.hallmark, isize:'140px', ds:'150px', html:`
+  <div class="kick">Главный принцип</div>
+  <h1 class="disp">Идём от<br>понимания</h1>
+  <div class="hair b"></div>
+  <div class="sub">важно, что ребёнок понимает, зачем учится</div>
+  <div class="cap">программа не гонится за скоростью</div>` },
+
+17:{ bg:'top', icon:I.person, isize:'150px', ds:'112px', html:`
+  <div class="kick">Кому подходит</div>
+  <h1 class="disp">Тесно в большом<br>классе?</h1>
+  <div class="lead">В классе на 30 человек учитель<br>не успевает до каждого</div>` },
+
+18:{ bg:'bottom', ghost:'₽', icon:I.cap, isize:'150px', ns:'214px', html:`
+  <div class="kick">Стоимость</div>
+  <div class="num">39 000 ₽</div>
+  <div class="permo">в месяц</div>
+  <div class="hair"></div>
+  <div class="lead">Материалы и работа<br>педагога входят в цену</div>` },
+
+19:{ bg:'tb', icon:I.bookcheck, isize:'150px', ds:'112px', html:`
+  <div class="kick">Частый вопрос</div>
+  <h1 class="disp">Уйти в обычную<br>школу можно</h1>
+  <div class="chip">Программа по ФГОС,<br>без разрыва в знаниях</div>` },
+
+20:{ bg:'tb', align:'left', icon:I.bell, isize:'150px', ds:'150px', html:`
+  <div class="kick">Как записаться</div>
+  <h1 class="disp">Начните<br>со встречи</h1>
+  <div class="lines">Познакомим с программой и педагогом<br>Васильевский остров, 16-я линия, 7</div>
+  <div class="phone">+7 (921) 556-07-24</div>
+  <div class="btn">Записаться</div>` },
+
+/* ═══ История 2 · Дополнительные занятия (21 = обложка) ═══ */
+21:{ bg:'bottom', align:'left', icon:I.palette, isize:'150px', ds:'118px', html:`
   <div class="kick">Занятия по выбору</div>
   <h1 class="disp">Дополнительные<br>занятия</h1>
   <div class="sub">можно ходить отдельно от школы</div>
@@ -254,21 +310,176 @@ const S = {
   </div>
   <div class="facts">от 1 100 ₽ · для детей с 3 лет</div>` },
 
-13:{ bg:'blue', inv:true, icon:I.person, isize:'134px', ds:'96px', html:`
+22:{ bg:'top', icon:I.palette, isize:'150px', ds:'150px', html:`
+  <div class="kick">Как это работает</div>
+  <h1 class="disp">Отдельно<br>от школы</h1>
+  <div class="chip">Ходить может любой ребёнок,<br>не только из нашей школы</div>` },
+
+23:{ bg:'bottom', align:'left', icon:I.sound, isize:'150px', html:`
+  <div class="kick">Логопед</div>
+  <div class="num">2 000 ₽</div>
+  <div class="permo">за занятие</div>
+  <div class="hair"></div>
+  <div class="lead">Ставят именно тот звук,<br>что не даётся. Дети 3-10 лет</div>` },
+
+24:{ bg:'bottom', align:'left', icon:I.book, isize:'150px', html:`
+  <div class="kick">Репетитор</div>
+  <div class="num">1 600 ₽</div>
+  <div class="permo">за занятие</div>
+  <div class="hair"></div>
+  <div class="lead">Математика, русский и чтение.<br>Школьники 8-13 лет</div>` },
+
+25:{ bg:'tb', ghost:'₽', icon:I.person, isize:'140px', html:`
+  <div class="kick">Каллиграфия</div>
+  <div class="num">9 900 ₽</div>
+  <div class="permo">курс, 9 занятий</div>
+  <div class="hair"></div>
+  <div class="lead">Наклон, нажим, соединения букв.<br>Дети 8-11 лет</div>` },
+
+26:{ bg:'top', icon:I.blocks, isize:'132px', ds:'150px', html:`
+  <div class="kick">Шахматы · 1 100 ₽</div>
+  <h1 class="disp">Два хода<br>вперёд</h1>
+  <div class="chip">Учатся спокойно<br>принимать проигрыш</div>
+  <div class="cap">с тренером, дети 7-11 лет</div>` },
+
+27:{ bg:'bottom', align:'left', icon:I.palette, isize:'150px', ds:'150px', html:`
+  <div class="kick">Лепка из глины · 1 100 ₽</div>
+  <h1 class="disp">Руки заняты<br>делом</h1>
+  <div class="lead">Уходит домой с готовой<br>вещью. Дети 7-13 лет</div>` },
+
+28:{ bg:'top', icon:I.book, isize:'150px', ds:'116px', html:`
+  <div class="kick">Творческое чтение · 1 100 ₽</div>
+  <h1 class="disp">Читаем то,<br>что выбрал сам</h1>
+  <div class="cap">обсуждаем книгу и мнение ребёнка о ней. Дети 6-10 лет</div>` },
+
+29:{ bg:'blue', inv:true, icon:I.hallmark, isize:'140px', ds:'120px', html:`
+  <div class="kick">Формат</div>
+  <h1 class="disp">Можно на одно<br>направление</h1>
+  <div class="hair b"></div>
+  <div class="sub">школа для этого не нужна</div>
+  <div class="cap">расписание подберём под возраст</div>` },
+
+30:{ bg:'tb', align:'left', icon:I.bell, isize:'150px', ds:'150px', html:`
+  <div class="kick">Как записаться</div>
+  <h1 class="disp">Выберите<br>занятие</h1>
+  <div class="lines">Скажем расписание и цену по нему<br>Васильевский остров, 16-я линия, 7</div>
+  <div class="phone">+7 (921) 556-07-24</div>
+  <div class="btn">Записаться</div>` },
+
+/* ═══ История 3 · Педагоги (31 = обложка) ═══ */
+31:{ bg:'blue', inv:true, icon:I.person, isize:'134px', ds:'96px', html:`
   <div class="kick">Кто ведёт занятия</div>
   <h1 class="disp">Педагоги, которые<br>выбрали РКШ</h1>
   <div class="sub">у каждого своя специализация</div>
   <div class="chip">На связи с родителями,<br>вопрос можно задать напрямую</div>
   <div class="cap">отзывы родителей на карточке ОКСИИ</div>` },
 
-14:{ bg:'bottom', icon:I.clock, isize:'146px', ds:'132px', html:`
+32:{ bg:'top', icon:I.hallmark, isize:'140px', ds:'132px', html:`
+  <div class="kick">Что объединяет</div>
+  <h1 class="disp">Верят в то,<br>чему учат</h1>
+  <div class="cap">методику РКШ педагоги выбрали сами</div>` },
+
+33:{ bg:'bottom', align:'left', icon:I.sound, isize:'150px', ds:'120px', html:`
+  <div class="kick">Логопед</div>
+  <h1 class="disp">Один ребёнок,<br>один звук</h1>
+  <div class="lead">Индивидуально, под конкретную<br>причину. Дети 3-10 лет</div>` },
+
+34:{ bg:'bottom', icon:I.blocks, isize:'132px', ds:'150px', html:`
+  <div class="kick">Шахматы</div>
+  <h1 class="disp">Отдельный<br>тренер</h1>
+  <div class="sub">регулярные занятия с понятным прогрессом</div>
+  <div class="cap">от урока к уроку виден рост</div>` },
+
+35:{ bg:'tb', icon:I.people, isize:'182px', ds:'112px', html:`
+  <div class="kick">Специализация</div>
+  <h1 class="disp">У каждого своё<br>направление</h1>
+  <div class="cap">логопед, репетитор, тренер, педагоги школы</div>` },
+
+36:{ bg:'blue', inv:true, icon:I.phone, isize:'128px', ds:'116px', html:`
+  <div class="kick">Связь с родителями</div>
+  <h1 class="disp">Спросить можно<br>напрямую</h1>
+  <div class="hair b"></div>
+  <div class="chip">Пишете педагогу<br>вашего ребёнка</div>` },
+
+37:{ bg:'top', align:'left', icon:I.person, isize:'150px', ds:'126px', html:`
+  <div class="kick">До записи</div>
+  <h1 class="disp">Прийти<br>познакомиться</h1>
+  <div class="lead">Посмотреть занятие<br>и педагога, потом решать</div>` },
+
+38:{ bg:'bottom', icon:I.bookcheck, isize:'150px', ds:'128px', html:`
+  <div class="kick">Отзывы</div>
+  <h1 class="disp">Пишут сами<br>родители</h1>
+  <div class="cap">прямо на карточке ОКСИИ, никто их не редактирует</div>` },
+
+39:{ bg:'tb', align:'left', icon:I.steps, isize:'128px', ds:'140px', html:`
+  <div class="kick">Первый шаг</div>
+  <h1 class="disp">Встреча<br>с педагогом</h1>
+  <div class="lead">Перед стартом занятий,<br>чтобы понять формат</div>` },
+
+40:{ bg:'tb', icon:I.bell, isize:'150px', ds:'132px', html:`
+  <div class="kick">Как записаться</div>
+  <h1 class="disp">Запишитесь<br>на встречу</h1>
+  <div class="lines">Васильевский остров, 16-я линия, 7<br>rksh-oksia.ru</div>
+  <div class="phone">+7 (921) 556-07-24</div>
+  <div class="btn">Записаться</div>` },
+
+/* ═══ История 4 · Как проходят занятия (41 = обложка) ═══ */
+41:{ bg:'bottom', icon:I.clock, isize:'146px', ds:'132px', html:`
   <div class="kick">Как проходят занятия</div>
   <h1 class="disp">День идёт<br>по расписанию</h1>
   <div class="sub">группы 4-7 человек</div>
   <div class="chip">Перерывы, прогулка и домашние<br>задания по возрасту</div>
   <div class="facts">короткая обратная связь родителям</div>` },
 
-15:{ bg:'bottom', align:'left', icon:I.phone, isize:'128px', ds:'134px', html:`
+42:{ bg:'top', icon:I.people, isize:'182px', ds:'150px', html:`
+  <div class="kick">В школе</div>
+  <h1 class="disp">Класс<br>4-7 человек</h1>
+  <div class="chip">Педагог видит всех сразу,<br>никто не теряется</div>` },
+
+43:{ bg:'bottom', align:'left', icon:I.clock, isize:'146px', ds:'108px', html:`
+  <div class="kick">Учебный день</div>
+  <h1 class="disp">Уроки, перерывы,<br>прогулка</h1>
+  <div class="lead">Ребёнок знает распорядок<br>и привыкает к ритму</div>` },
+
+44:{ bg:'tb', icon:I.book, isize:'150px', ds:'138px', html:`
+  <div class="kick">Домашние задания</div>
+  <h1 class="disp">По возрасту,<br>по программе</h1>
+  <div class="lead">Столько, сколько ребёнок<br>сделает сам</div>` },
+
+45:{ bg:'blue', inv:true, icon:I.phone, isize:'128px', ds:'114px', html:`
+  <div class="kick">Родителям</div>
+  <h1 class="disp">Обратная связь<br>каждый день</h1>
+  <div class="cap">что было на занятиях и как прошло</div>` },
+
+46:{ bg:'top', align:'left', icon:I.clock, isize:'146px', ds:'138px', html:`
+  <div class="kick">Дополнительные занятия</div>
+  <h1 class="disp">Урок<br>от 40 минут</h1>
+  <div class="cap">до полутора часов, зависит от направления</div>` },
+
+47:{ bg:'bottom', icon:I.steps, isize:'128px', ds:'150px', html:`
+  <div class="kick">Начало урока</div>
+  <h1 class="disp">Сначала<br>разминка</h1>
+  <div class="lead">Чтобы ребёнок включился<br>в работу постепенно</div>` },
+
+48:{ bg:'top', align:'left', icon:I.palette, isize:'150px', ds:'118px', html:`
+  <div class="kick">Основная часть</div>
+  <h1 class="disp">Дальше<br>по направлению</h1>
+  <div class="cap">шахматы, лепка, чтение, логопед</div>` },
+
+49:{ bg:'tb', icon:I.bookcheck, isize:'150px', ds:'140px', html:`
+  <div class="kick">Первый раз</div>
+  <h1 class="disp">Посмотрите<br>вживую</h1>
+  <div class="chip">Первое занятие приходят<br>как на пробное</div>` },
+
+50:{ bg:'tb', align:'left', icon:I.bell, isize:'150px', ds:'140px', html:`
+  <div class="kick">Как записаться</div>
+  <h1 class="disp">Запишитесь<br>на пробное</h1>
+  <div class="lines">Васильевский остров, 16-я линия, 7<br>rksh-oksia.ru</div>
+  <div class="phone">+7 (921) 556-07-24</div>
+  <div class="btn">Записаться</div>` },
+
+/* ═══ История 5 · Как записаться (51 = обложка) ═══ */
+51:{ bg:'bottom', align:'left', icon:I.phone, isize:'128px', ds:'134px', html:`
   <div class="kick">Как записаться</div>
   <h1 class="disp">Три способа<br>связаться</h1>
   <div class="list ol">
@@ -276,7 +487,55 @@ const S = {
     <div class="li"><i></i> Написать в Telegram или MAX</div>
     <div class="li"><i></i> Нажать кнопку на карточке</div>
   </div>
-  <div class="phone">+7 (921) 556-07-24</div>` }
+  <div class="phone">+7 (921) 556-07-24</div>` },
+
+52:{ bg:'top', icon:I.phone, isize:'128px', ds:'132px', html:`
+  <div class="kick">Телефон</div>
+  <h1 class="disp">+7 (921)<br>556-07-24</h1>
+  <div class="cap">один номер: звонок, Telegram, MAX</div>` },
+
+53:{ bg:'bottom', align:'left', icon:I.house, isize:'150px', ds:'138px', html:`
+  <div class="kick">Адрес</div>
+  <h1 class="disp">16-я линия,<br>дом 7</h1>
+  <div class="lead">Васильевский остров,<br>Санкт-Петербург</div>` },
+
+54:{ bg:'tb', icon:I.steps, isize:'128px', ds:'140px', html:`
+  <div class="kick">Как добраться</div>
+  <h1 class="disp">От метро<br>840 метров</h1>
+  <div class="cap">станция Горный институт</div>` },
+
+55:{ bg:'blue', inv:true, icon:I.people, isize:'182px', ds:'138px', html:`
+  <div class="kick">Первая встреча</div>
+  <h1 class="disp">Подберём<br>формат</h1>
+  <div class="hair b"></div>
+  <div class="sub">по возрасту и запросу ребёнка</div>` },
+
+56:{ bg:'top', align:'left', icon:I.house, isize:'150px', ds:'120px', html:`
+  <div class="kick">До записи</div>
+  <h1 class="disp">Прийти<br>посмотреть</h1>
+  <div class="lead">Увидеть, как идёт занятие,<br>и познакомиться</div>` },
+
+57:{ bg:'bottom', icon:I.clock, isize:'146px', ds:'124px', html:`
+  <div class="kick">Скорость ответа</div>
+  <h1 class="disp">Ответим<br>в тот же день</h1>
+  <div class="cap">обычно в течение нескольких часов</div>` },
+
+58:{ bg:'tb', icon:I.phone, isize:'128px', ds:'150px', html:`
+  <div class="kick">Написать</div>
+  <h1 class="disp">Telegram<br>или MAX</h1>
+  <div class="chip">Ответим там же,<br>где вам удобно</div>` },
+
+59:{ bg:'top', icon:I.bookcheck, isize:'150px', ds:'112px', html:`
+  <div class="kick">Что подготовить</div>
+  <h1 class="disp">Готовить<br>ничего не нужно</h1>
+  <div class="cap">приходите с ребёнком, остальное на месте</div>` },
+
+60:{ bg:'tb', align:'left', icon:I.bell, isize:'150px', ds:'118px', html:`
+  <div class="kick">Готовы?</div>
+  <h1 class="disp">Нажмите<br>«Записаться»</h1>
+  <div class="lines">Кнопка на карточке ведёт в форму заявки<br>Васильевский остров, 16-я линия, 7</div>
+  <div class="phone">+7 (921) 556-07-24</div>
+  <div class="btn">Записаться</div>` }
 };
 
 const n = parseInt(new URLSearchParams(location.search).get('n')||'1',10);
@@ -287,6 +546,7 @@ if(s.align==='left') z.classList.add('left');
 if(s.inv) z.classList.add('inv');
 if(s.isize) z.style.setProperty('--isize', s.isize);
 if(s.ds) z.style.setProperty('--ds', s.ds);
+if(s.ns) z.style.setProperty('--ns', s.ns);
 let pre = s.ghost ? `<div class="ghost">${s.ghost}</div>` : '';
 z.innerHTML = pre + `<div class="icon">${s.icon}</div>` + s.html;
 if(s.inv) document.querySelector('.wm').style.color = 'rgba(251,245,233,.8)';

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,600&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF5E9;
+    --bronze:#8A5A1B;
+    --bronze-soft:#9C6B2E;
+    --navy:#2E4356;
+    --blue:#3C5C77;
+    --blue-line:#6E93B4;
+    --blue-wash:#E3EBF1;
+    --ink:#453B2C;
+    --fg-kick:var(--bronze-soft);
+    --fg-disp:var(--bronze);
+    --fg-body:var(--ink);
+    --fg-lead:var(--navy);
+    --chip-bg:var(--blue-wash);
+    --chip-fg:var(--blue);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1280px;height:1920px;overflow:hidden;}
+  body{
+    font-family:"PT Serif",Georgia,serif;
+    background:var(--cream) center/1280px 1920px no-repeat;
+    color:var(--ink);
+    position:relative;
+  }
+  .vin{ position:absolute; inset:0; pointer-events:none;
+    background:radial-gradient(120% 60% at 50% 46%, rgba(255,255,255,.26), rgba(255,255,255,0) 60%); }
+
+  .wm{
+    position:absolute; left:0; right:0; bottom:44px; text-align:center;
+    font-family:"PT Serif",serif; font-weight:700;
+    font-size:26px; letter-spacing:.32em; text-transform:uppercase;
+    color:var(--bronze-soft); opacity:.9; z-index:2;
+  }
+
+  .zone{
+    position:absolute; inset:0;
+    padding:322px 116px 300px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    z-index:1;
+  }
+  .zone.left{ align-items:flex-start; text-align:left; padding-left:118px; padding-right:150px; }
+
+  .ghost{
+    position:absolute; left:50%; top:47%; transform:translate(-50%,-50%);
+    font-family:"Playfair Display",serif; font-weight:900;
+    font-size:840px; line-height:1; color:var(--bronze); opacity:.06;
+    z-index:0; pointer-events:none; user-select:none;
+  }
+
+  .icon{ margin-bottom:52px; }
+  .icon svg{ display:block; width:var(--isize,168px); height:auto;
+    stroke:var(--fg-disp); stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+
+  .kick{
+    font-family:"PT Serif",serif; font-weight:700;
+    font-size:32px; letter-spacing:.34em; text-transform:uppercase;
+    color:var(--fg-kick);
+  }
+  .disp{
+    font-family:"Playfair Display",serif; font-weight:800;
+    font-size:var(--ds,152px); line-height:1.07; letter-spacing:-.005em;
+    color:var(--fg-disp);
+    margin-top:52px;
+    white-space:nowrap;
+  }
+  .num{
+    font-family:"Playfair Display",serif; font-weight:800;
+    font-size:270px; line-height:1; letter-spacing:-.015em; color:var(--fg-disp);
+    margin-top:46px;
+  }
+  .permo{ margin-top:20px; font-size:48px; color:var(--bronze-soft); font-style:italic; font-family:"Playfair Display",serif; }
+
+  .hair{ margin-top:60px; width:116px; border-top:2px solid var(--bronze-soft); opacity:.7; }
+  .hair.b{ margin-top:34px; }
+
+  .lead{
+    margin-top:56px;
+    font-size:56px; line-height:1.38; color:var(--fg-lead);
+    font-family:"Playfair Display",serif; font-style:italic; font-weight:500;
+  }
+  .sub{ margin-top:44px; font-size:53px; font-weight:700; color:var(--fg-body); }
+  .cap{ margin-top:22px; font-size:35px; color:var(--bronze-soft); font-style:italic; }
+
+  .list{ margin-top:54px; display:flex; flex-direction:column; gap:30px; }
+  .list .li{ font-size:52px; color:var(--fg-body); display:flex; align-items:baseline; gap:28px; }
+  .list .li i{ width:14px; height:14px; flex:0 0 auto; background:var(--blue-line);
+     transform:rotate(45deg); position:relative; top:-6px; }
+  .list.ol{ counter-reset:s; }
+  .list.ol .li{ counter-increment:s; }
+  .list.ol .li i{ background:none; transform:none; width:auto; top:0;
+     font-family:"Playfair Display",serif; font-weight:700; font-size:44px; color:var(--bronze); }
+  .list.ol .li i::before{ content:counter(s); }
+
+  .chip{
+    margin-top:64px;
+    background:var(--chip-bg);
+    border-radius:24px;
+    padding:50px 74px;
+    font-size:52px; line-height:1.34; color:var(--chip-fg);
+    font-family:"Playfair Display",serif; font-style:italic; font-weight:500;
+  }
+  .band{
+    margin-top:86px;
+    width:calc(100% + 232px); margin-left:-116px; margin-right:-116px;
+    background:var(--blue-wash);
+    border-top:2px solid rgba(46,67,86,.28); border-bottom:2px solid rgba(46,67,86,.28);
+    padding:76px 90px;
+    font-size:62px; line-height:1.32; color:var(--blue);
+    font-family:"Playfair Display",serif; font-style:italic; font-weight:500;
+  }
+
+  .facts{
+    margin-top:60px;
+    font-size:30px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--fg-kick);
+  }
+  .tiles{ margin-top:60px; display:flex; align-items:center; gap:48px; }
+  .tile{ font-family:"Playfair Display",serif; font-weight:700; font-size:68px; color:var(--fg-disp); }
+  .tdot{ width:12px; height:12px; border-radius:50%; background:var(--blue-line); }
+
+  .lines{ margin-top:50px; font-size:50px; line-height:1.52; color:var(--fg-body); }
+  .phone{ margin-top:30px; font-size:53px; font-weight:700; color:var(--fg-disp); }
+  .btn{
+    margin-top:64px;
+    background:var(--blue); color:#FBF5E9;
+    font-family:"Playfair Display",serif; font-weight:700;
+    font-size:50px; letter-spacing:.02em;
+    padding:40px 108px; border-radius:999px;
+  }
+
+  /* inverted (blue background) */
+  .zone.inv{ --fg-kick:rgba(251,245,233,.82); --fg-disp:#FBF5E9; --fg-body:rgba(251,245,233,.92);
+    --fg-lead:#FBF5E9; --chip-bg:rgba(251,245,233,.14); --chip-fg:#FBF5E9; }
+  .zone.inv .hair{ border-color:rgba(251,245,233,.55); }
+  .zone.inv .cap{ color:rgba(251,245,233,.72); }
+  .zone.inv ~ .wm{ color:rgba(251,245,233,.8); }
+</style>
+</head>
+<body>
+  <div class="vin"></div>
+  <div class="zone" id="zone"></div>
+  <div class="wm">ОКСИЯ</div>
+
+<script>
+const I = {
+  book:'<svg viewBox="0 0 100 84"><path d="M50 24 C40 16 22 15 8 20 L8 74 C22 69 40 70 50 78 C60 70 78 69 92 74 L92 20 C78 15 60 16 50 24 Z"/><path d="M50 24 V78"/><path d="M20 35 C29 32 40 32 46 35"/><path d="M54 35 C60 32 71 32 80 35"/></svg>',
+  trees:'<svg viewBox="0 0 118 92"><path d="M22 86 V66"/><path d="M22 66 C9 61 9 35 22 26 C35 35 35 61 22 66 Z"/><path d="M59 88 V60"/><path d="M59 60 C43 54 43 20 59 11 C75 20 75 54 59 60 Z"/><path d="M96 86 V66"/><path d="M96 66 C83 61 83 35 96 26 C109 35 109 61 96 66 Z"/></svg>',
+  blocks:'<svg viewBox="0 0 96 88"><rect x="10" y="46" width="34" height="34" rx="4"/><rect x="52" y="46" width="34" height="34" rx="4"/><rect x="31" y="10" width="34" height="34" rx="4"/></svg>',
+  sound:'<svg viewBox="0 0 108 88"><path d="M18 30 H66 A10 10 0 0 1 76 40 V60 A10 10 0 0 1 66 70 H40 L24 84 V70 H18 A10 10 0 0 1 8 60 V40 A10 10 0 0 1 18 30 Z"/><circle cx="30" cy="50" r="3.2"/><circle cx="44" cy="50" r="3.2"/><circle cx="58" cy="50" r="3.2"/><path d="M88 34 C97 43 97 51 88 60"/><path d="M98 24 C112 38 112 56 98 70"/></svg>',
+  cap:'<svg viewBox="0 0 104 78"><path d="M52 12 L96 30 L52 48 L8 30 Z"/><path d="M24 39 V60 C24 70 80 70 80 60 V39"/><path d="M96 30 V58"/><circle cx="96" cy="62" r="4"/></svg>',
+  hallmark:'<svg viewBox="0 0 96 96"><circle cx="48" cy="48" r="40"/><circle cx="48" cy="48" r="30"/><path d="M48 30 L52 44 L66 44 L55 52 L59 66 L48 58 L37 66 L41 52 L30 44 L44 44 Z"/></svg>',
+  people:'<svg viewBox="0 0 124 74"><circle cx="26" cy="22" r="11"/><circle cx="62" cy="22" r="11"/><circle cx="98" cy="22" r="11"/><path d="M8 66 C8 47 44 47 44 66"/><path d="M44 66 C44 45 80 45 80 66"/><path d="M80 66 C80 47 116 47 116 66"/></svg>',
+  bookcheck:'<svg viewBox="0 0 100 88"><path d="M50 26 C40 18 22 17 8 22 L8 76 C22 71 40 72 50 80 C60 72 78 71 92 76 L92 22 C78 17 60 18 50 26 Z"/><path d="M50 26 V80"/><path d="M28 46 l8 8 17 -17"/></svg>',
+  steps:'<svg viewBox="0 0 96 92"><path d="M8 82 H30 V60 H52 V38 H74 V16"/><circle cx="74" cy="16" r="6"/></svg>',
+  bell:'<svg viewBox="0 0 104 92"><path d="M52 18 C36 18 32 33 32 48 C32 62 24 68 24 72 H80 C80 68 72 62 72 48 C72 33 68 18 52 18 Z"/><path d="M52 12 V18"/><path d="M44 72 C44 84 60 84 60 72"/><path d="M16 40 C10 46 10 54 16 60"/><path d="M88 40 C94 46 94 54 88 60"/></svg>',
+  house:'<svg viewBox="0 0 100 92"><path d="M10 46 L50 12 L90 46"/><path d="M22 40 V82 H78 V40"/><path d="M42 82 V56 H58 V82"/></svg>',
+  palette:'<svg viewBox="0 0 96 90"><path d="M48 8 C24 8 6 26 6 47 C6 65 20 75 33 73 C41 72 44 65 48 61 C52 57 60 57 66 61 C73 66 90 61 90 43 C90 23 72 8 48 8 Z"/><circle cx="30" cy="34" r="4.6"/><circle cx="50" cy="24" r="4.6"/><circle cx="68" cy="36" r="4.6"/></svg>',
+  person:'<svg viewBox="0 0 80 92"><circle cx="40" cy="23" r="15"/><path d="M9 86 C9 58 25 46 40 46 C55 46 71 58 71 86"/></svg>',
+  clock:'<svg viewBox="0 0 96 96"><circle cx="48" cy="48" r="40"/><path d="M48 24 V49 L65 60"/></svg>',
+  phone:'<svg viewBox="0 0 92 92"><path d="M25 10 C16 10 10 19 13 31 C20 62 34 76 63 83 C75 86 84 79 84 70 L84 57 L63 49 L55 61 C43 55 35 47 30 35 L42 27 L33 10 Z"/></svg>'
+};
+const dot='<i></i>';
+
+const S = {
+1:{ bg:'tb', icon:I.book, isize:'150px', ds:'158px', html:`
+  <div class="kick">ОКСИЯ · Васильевский остров</div>
+  <h1 class="disp">Подготовка<br>к школе</h1>
+  <div class="sub">для детей 4, 5 и 6-7 лет</div>
+  <div class="chip">Приходит в первый класс<br>читающим и уверенным</div>
+  <div class="facts">малые группы · методика РКШ</div>` },
+
+2:{ bg:'top', icon:I.trees, isize:'158px', ds:'104px', html:`
+  <div class="kick">Три возраста</div>
+  <h1 class="disp">У каждого возраста<br>своя программа</h1>
+  <div class="tiles"><span class="tile">4 года</span><span class="tdot"></span><span class="tile">5 лет</span><span class="tdot"></span><span class="tile">6-7 лет</span></div>
+  <div class="cap">у каждой группы свой темп</div>` },
+
+3:{ bg:'bottom', type:'num', ghost:'₽', icon:I.blocks, isize:'128px', html:`
+  <div class="kick">4 года</div>
+  <div class="num">6 000 ₽</div>
+  <div class="permo">в месяц</div>
+  <div class="hair"></div>
+  <div class="lead">Первые буквы и звуки<br>в игре, без прописей</div>` },
+
+4:{ bg:'bottom', align:'left', type:'num', icon:I.sound, isize:'150px', html:`
+  <div class="kick">5 лет</div>
+  <div class="num">8 800 ₽</div>
+  <div class="permo">в месяц</div>
+  <div class="hair"></div>
+  <div class="lead">Развиваем речь и слух.<br>Основа будущей грамотности</div>` },
+
+5:{ bg:'tb', type:'num', ghost:'₽', icon:I.cap, isize:'150px', html:`
+  <div class="kick">6-7 лет</div>
+  <div class="num">8 800 ₽</div>
+  <div class="permo">в месяц</div>
+  <div class="hair"></div>
+  <div class="lead">Читает, пишет и знает,<br>что такое урок</div>` },
+
+6:{ bg:'blue', inv:true, icon:I.hallmark, isize:'140px', ds:'150px', html:`
+  <div class="kick">Как учим</div>
+  <h1 class="disp">Методика РКШ</h1>
+  <div class="hair b"></div>
+  <div class="sub">Русская классическая школа</div>
+  <div class="cap">та же программа, что и в начальной школе ОКСИИ</div>` },
+
+7:{ bg:'top', align:'left', icon:I.people, isize:'182px', ds:'140px', html:`
+  <div class="kick">Малая группа</div>
+  <h1 class="disp">Педагог рядом<br>с каждым</h1>
+  <div class="chip">Успевает подойти к каждому<br>ребёнку за одно занятие</div>
+  <div class="facts">Васильевский остров · 16-я линия</div>` },
+
+8:{ bg:'bottom', icon:I.bookcheck, isize:'150px', ds:'160px', html:`
+  <div class="kick">Результат</div>
+  <h1 class="disp">В школу идёт<br>без страха</h1>
+  <div class="band">Читает, пишет и привык<br>к формату урока</div>` },
+
+9:{ bg:'bottom', align:'left', icon:I.steps, isize:'124px', ds:'146px', html:`
+  <div class="kick">Когда начинать</div>
+  <h1 class="disp">Чем раньше,<br>тем легче</h1>
+  <div class="hair"></div>
+  <div class="lead">Берём с 4 лет, программа<br>идёт от уровня ребёнка</div>` },
+
+10:{ bg:'tb', icon:I.bell, isize:'150px', ds:'132px', html:`
+  <div class="kick">Как записаться</div>
+  <h1 class="disp">Запишитесь<br>на занятие</h1>
+  <div class="lines">Васильевский остров, 16-я линия, 7<br>rksh-oksia.ru</div>
+  <div class="phone">+7 (921) 556-07-24</div>
+  <div class="btn">Записаться</div>` },
+
+11:{ bg:'tb', icon:I.house, isize:'160px', ds:'120px', html:`
+  <div class="kick">ОКСИЯ · Васильевский остров</div>
+  <h1 class="disp">Семейные классы</h1>
+  <div class="sub">начальная школа полного дня</div>
+  <div class="chip">Маленький класс, где педагог<br>видит каждого ребёнка</div>
+  <div class="facts">методика РКШ · 4-7 детей в классе</div>` },
+
+12:{ bg:'bottom', align:'left', icon:I.palette, isize:'150px', ds:'118px', html:`
+  <div class="kick">Занятия по выбору</div>
+  <h1 class="disp">Дополнительные<br>занятия</h1>
+  <div class="sub">можно ходить отдельно от школы</div>
+  <div class="list">
+    <div class="li">${dot} Логопед и репетитор</div>
+    <div class="li">${dot} Каллиграфия и творческое чтение</div>
+    <div class="li">${dot} Шахматы и лепка из глины</div>
+  </div>
+  <div class="facts">от 1 100 ₽ · для детей с 3 лет</div>` },
+
+13:{ bg:'blue', inv:true, icon:I.person, isize:'134px', ds:'96px', html:`
+  <div class="kick">Кто ведёт занятия</div>
+  <h1 class="disp">Педагоги, которые<br>выбрали РКШ</h1>
+  <div class="sub">у каждого своя специализация</div>
+  <div class="chip">На связи с родителями,<br>вопрос можно задать напрямую</div>
+  <div class="cap">отзывы родителей на карточке ОКСИИ</div>` },
+
+14:{ bg:'bottom', icon:I.clock, isize:'146px', ds:'132px', html:`
+  <div class="kick">Как проходят занятия</div>
+  <h1 class="disp">День идёт<br>по расписанию</h1>
+  <div class="sub">группы 4-7 человек</div>
+  <div class="chip">Перерывы, прогулка и домашние<br>задания по возрасту</div>
+  <div class="facts">короткая обратная связь родителям</div>` },
+
+15:{ bg:'bottom', align:'left', icon:I.phone, isize:'128px', ds:'134px', html:`
+  <div class="kick">Как записаться</div>
+  <h1 class="disp">Три способа<br>связаться</h1>
+  <div class="list ol">
+    <div class="li"><i></i> Позвонить по телефону</div>
+    <div class="li"><i></i> Написать в Telegram или MAX</div>
+    <div class="li"><i></i> Нажать кнопку на карточке</div>
+  </div>
+  <div class="phone">+7 (921) 556-07-24</div>` }
+};
+
+const n = parseInt(new URLSearchParams(location.search).get('n')||'1',10);
+const s = S[n];
+document.body.style.backgroundImage = `url("bg-${s.bg||'tb'}.png")`;
+const z = document.getElementById('zone');
+if(s.align==='left') z.classList.add('left');
+if(s.inv) z.classList.add('inv');
+if(s.isize) z.style.setProperty('--isize', s.isize);
+if(s.ds) z.style.setProperty('--ds', s.ds);
+let pre = s.ghost ? `<div class="ghost">${s.ghost}</div>` : '';
+z.innerHTML = pre + `<div class="icon">${s.icon}</div>` + s.html;
+if(s.inv) document.querySelector('.wm').style.color = 'rgba(251,245,233,.8)';
+</script>
+</body>
+</html>

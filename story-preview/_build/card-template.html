@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,600&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF5E9;
+    --ink:#3C280A;
+    --bronze:#8A5A1B;
+    --blue:#4682C8;
+    --red:#D2463C;
+    --green:#4F8C58;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1024px;height:1024px;overflow:hidden;}
+  body{font-family:"PT Serif",Georgia,serif;background:var(--cream);position:relative;}
+
+  .photo{position:absolute;top:0;left:0;width:1024px;height:655px;object-fit:cover;}
+
+  .stripe{position:absolute;top:655px;left:0;width:1024px;height:6px;
+    background:linear-gradient(90deg,
+      var(--blue) 0%, var(--blue) 33.3%,
+      var(--red) 33.3%, var(--red) 66.6%,
+      var(--green) 66.6%, var(--green) 100%);}
+
+  .band{position:absolute;top:661px;left:0;width:1024px;height:363px;padding:40px 44px 36px;}
+
+  .kick{font-family:"PT Serif",serif;font-weight:700;font-size:24px;letter-spacing:.28em;
+    text-transform:uppercase;color:var(--bronze);}
+
+  .title{font-family:"Playfair Display",serif;font-weight:800;font-size:68px;line-height:1.06;
+    color:var(--ink);margin-top:18px;max-width:900px;}
+
+  .row{display:flex;align-items:center;justify-content:space-between;margin-top:30px;}
+
+  .price{display:inline-flex;align-items:baseline;gap:10px;background:var(--red);
+    color:var(--cream);border-radius:16px;padding:18px 30px;
+    font-family:"Playfair Display",serif;font-weight:800;font-size:46px;}
+  .price .per{font-family:"PT Serif",serif;font-weight:400;font-style:italic;font-size:26px;
+    color:rgba(251,245,233,.86);}
+
+  .logo{height:118px;width:auto;}
+</style>
+</head>
+<body>
+  <img class="photo" src="card-photo-01.jpg" alt="">
+  <div class="stripe"></div>
+  <div class="band">
+    <div class="kick">Начальная школа</div>
+    <div class="title">Семейные классы</div>
+    <div class="row">
+      <div class="price">39 000 ₽<span class="per">в месяц</span></div>
+      <img class="logo" src="oksia-logo.png" alt="Оксия">
+    </div>
+  </div>
+</body>
+</html>

@@ -15,18 +15,27 @@
   .card{ border:1px solid var(--border); border-radius:14px; overflow:hidden; background:var(--cream);
     box-shadow:0 10px 30px rgba(90,70,30,.14); }
   .card img{ display:block; width:100%; height:auto; }
+  .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  @media (max-width:480px){ .grid{ grid-template-columns:repeat(2,1fr); } }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>Новый дизайн — финал на проверку</h1>
-  <p class="lead">Один вариант карточки товара и один вариант истории, с учётом всех правок.</p>
+  <h1>Новый дизайн</h1>
+  <p class="lead">Карточка товара — финал. Обложки всех 6 историй — на согласование, в том же стиле.</p>
 
-  <h2>Товар — Начальная школа</h2>
+  <h2>Товар — Начальная школа (финал)</h2>
   <div class="card"><img src="card-sample-01.png?v=8" alt="Карточка товара"></div>
 
-  <h2>История — Семейные классы</h2>
-  <div class="card"><img src="story-sample-01-bright.png?v=8" alt="История, обложка"></div>
+  <h2>Обложки историй — на согласование</h2>
+  <div class="grid">
+    <div class="card"><img src="cover-01.png" alt="Подготовка к школе"></div>
+    <div class="card"><img src="story-sample-01-bright.png?v=8" alt="Семейные классы"></div>
+    <div class="card"><img src="cover-03.png" alt="Дополнительные занятия"></div>
+    <div class="card"><img src="cover-04.png" alt="Педагоги, которые выбрали РКШ"></div>
+    <div class="card"><img src="cover-05.png" alt="День идёт по расписанию"></div>
+    <div class="card"><img src="cover-06.png" alt="Три способа связаться"></div>
+  </div>
 </div>
 </body>
 </html>

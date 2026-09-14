@@ -13,7 +13,9 @@
     --blue:#4682C8;
     --red:#D2463C;
     --green:#4F8C58;
+    --blue-muted:#43678F;
     --red-muted:#A53D2D;
+    --green-muted:#496E41;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html,body{width:1024px;height:1024px;overflow:hidden;}
@@ -38,7 +40,8 @@
   .row{display:flex;align-items:flex-end;justify-content:space-between;margin-top:30px;
     position:relative;bottom:74px;}
 
-  .price{display:inline-flex;align-items:baseline;justify-content:center;gap:18px;background:var(--red-muted);
+  .price{display:inline-flex;align-items:baseline;justify-content:center;gap:18px;
+    background:var(--accent, var(--red-muted));
     color:var(--cream);border-radius:16px;padding:22px 34px 18px;line-height:1;
     font-family:"Playfair Display",serif;font-weight:800;font-size:46px;}
   .price .num{font-size:60px;line-height:1;}
@@ -49,15 +52,43 @@
 </style>
 </head>
 <body>
-  <img class="photo" src="card-photo-01.jpg" alt="">
+  <img class="photo" id="photo" src="" alt="">
   <div class="stripe"></div>
   <div class="band">
-    <div class="kick">Начальная школа</div>
-    <div class="title">Семейные классы</div>
+    <div class="kick" id="kick"></div>
+    <div class="title" id="title"></div>
     <div class="row">
-      <div class="price"><span class="num">39 000</span><span class="per">в месяц</span></div>
+      <div class="price" id="price"><span class="num" id="num"></span><span class="per" id="per"></span></div>
       <img class="logo" src="oksia-logo.png" alt="Оксия">
     </div>
   </div>
+
+<script>
+const S = {
+1:{ photo:'photo-podg-4.jpg', kick:'Подготовка к школе', title:'4 года',
+    num:'6 000', per:'в месяц', accent:'var(--blue-muted)' },
+2:{ photo:'photo-podg-5.jpg', kick:'Подготовка к школе', title:'5 лет',
+    num:'8 800', per:'в месяц', accent:'var(--green-muted)' },
+3:{ photo:'photo-podg-67.jpg', kick:'Подготовка к школе', title:'6-7 лет',
+    num:'8 800', per:'в месяц', accent:'var(--red-muted)' },
+4:{ photo:'photo-kalligrafiya.jpg', kick:'Каллиграфия', title:'Почерк и каллиграфия', titleSize:'58px',
+    num:'9 900', per:'курс', accent:'var(--blue-muted)' },
+5:{ photo:'photo-lepka.jpg', kick:'Творческие занятия', title:'Лепка из глины',
+    num:'1 100', per:'занятие', accent:'var(--green-muted)' },
+6:{ photo:'photo-chtenie.jpg', kick:'Творческие занятия', title:'Творческое чтение',
+    num:'1 100', per:'занятие', accent:'var(--red-muted)' }
+};
+
+const n = parseInt(new URLSearchParams(location.search).get('n')||'1',10);
+const s = S[n];
+document.getElementById('photo').src = s.photo;
+document.getElementById('kick').textContent = s.kick;
+const titleEl = document.getElementById('title');
+titleEl.textContent = s.title;
+if(s.titleSize) titleEl.style.fontSize = s.titleSize;
+document.getElementById('num').textContent = s.num;
+document.getElementById('per').textContent = s.per;
+document.getElementById('price').style.setProperty('--accent', s.accent);
+</script>
 </body>
 </html>

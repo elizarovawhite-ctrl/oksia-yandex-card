@@ -63,7 +63,7 @@
     margin-top:60px;
     background:var(--chip-bg);
     border:2px solid rgba(60,40,10,.12);
-    border-left:10px solid var(--accent, var(--red-muted));
+    border-left:10px solid var(--accent2, var(--accent, var(--red-muted)));
     border-radius:20px;
     padding:46px 66px;
     font-size:52px; line-height:1.34; color:var(--ink);
@@ -78,7 +78,7 @@
   }
   .phone{
     margin-top:56px;
-    font-size:53px; font-weight:700; color:var(--accent, var(--red-muted));
+    font-size:53px; font-weight:700; color:var(--accent2, var(--accent, var(--red-muted)));
     font-family:"Playfair Display",serif;
   }
 
@@ -95,7 +95,7 @@ const S = {
 1:{ title:'Подготовка<br>к школе', sub:'для детей 4, 5 и 6-7 лет',
     chip:'Приходит в первый класс<br>читающим и уверенным',
     bottom:{type:'facts', text:'малые группы · методика РКШ'},
-    accent:'var(--blue-muted)', bg:'bg-tb-bright.png' },
+    accent:'var(--green-muted)', accent2:'var(--red-muted)', bg:'bg-tb-bright.png' },
 
 2:{ title:'Семейные<br>классы', sub:'начальная школа полного дня',
     chip:'Маленький класс, где педагог<br>видит каждого ребёнка',
@@ -127,6 +127,7 @@ const n = parseInt(new URLSearchParams(location.search).get('n')||'2',10);
 const s = S[n];
 document.body.style.backgroundImage = `url("${s.bg}")`;
 document.getElementById('zone').style.setProperty('--accent', s.accent);
+document.getElementById('zone').style.setProperty('--accent2', s.accent2 || s.accent);
 const z = document.getElementById('zone');
 let html = `<div class="kick kick-brand">ОКСИЯ</div><div class="kick kick-loc">ВАСИЛЬЕВСКИЙ ОСТРОВ</div>`;
 html += `<div class="stripe"><i class="b"></i><i class="r"></i><i class="g"></i></div>`;
